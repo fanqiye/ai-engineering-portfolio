@@ -10,17 +10,17 @@
     "protocol.md": "d23ff1331aecf8bf7964393b95eb064fe49690a825d3ca546884dd218e292c44",
     "requirements.txt": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
     ".gitignore": "63bc895c006a1c383c39af98e07ab9204bdc2ae291a52cfe8c7c2b5bca735832",
-    "spam_classifier.py": "e40d735664bacead6a398c300b2cb7e601f419f9e74f481f1e9c14ced7114205",
+    "spam_classifier.py": "62b22ec56f667fbc1422ec22dd396e12c8f45e04bed859a892ee4a849046eec6",
     "retrieval_eval.py": "f4480b68576391f76290ea9a5dae42965a8b9b2a91dd4de35f7dd238cd1a1faa",
     "check.py": "5d3d02f3b4994889f1b94d2333297a05a2bfab49d21862df7cfdac5c4a46f399",
     ".github/workflows/check.yml": "5235b6ddb4ab045f44813ba9ee77c8b893a5c8071ac047849b6ab9cf8c307978",
-    "data/caigou_knowledge.json": "7b9dec6ea2dd8c7aec7610cfb9d28ff3e74d42b9cc3b56768ca4ddcb1a0532ae",
-    "data/caigou_queries.jsonl": "f9d48496170b6c782b9654300ba8c91e73c8508d3bb8f58380abccd6d4456b34",
-    "results/spam_metrics.json": "fb2cc8f4dee97744683bd24abf0a76fd05f9ce3d6af1ab8e8cc9268a777a7673",
+    "data/caigou_knowledge.json": "948a99294398a62088c7d4c01457ae4482e07edbaf1bf779c18d1952ac7cd805",
+    "data/caigou_queries.jsonl": "ddac36ae8d0a821b32ff00330f0a85f5e04c1ac7527d23b3a8c85dd9328f2b56",
+    "results/spam_metrics.json": "142a929084218bfbde2ae8145a8e7d337ca00092f1930c1d72f1d47f5a622cce",
     "results/spam_model.json": "8666236ea1e7e7dd75f8a30bd58777d844909304e4f8959a87288f129b8ab3fb",
-    "results/spam_predictions.csv": "164d21a3eba682700aa73820170838598436e1eb70522ac35f570bf09b90d397",
-    "results/spam_split_hashes.json": "d90844d8dec5d37a7ea4b90e733f25efffa779f986548ce85321f9092b9c40fa",
-    "results/retrieval_metrics.json": "4496bce1592d5fadfd4235b7501144e83baa9223135e31c4035936195147ada1",
-    "results/retrieval_predictions.jsonl": "0babe45c4a1eac6074f86da3ae223dacd292a410a33ac148112df2953a68a35d"
+    "results/spam_predictions.csv": "083b764f1f760566842142f9a33fe7c85deda21fe5eb70b0e5c191744e7563ee",
+    "results/spam_split_hashes.json": "f5e258fa9a4bc212fcb8b777d5e0674e9f62a2c8b9618314a1acc6886eb69a5c",
+    "results/retrieval_metrics.json": "218750561ca1c4546299c873f75d337970256107f3413d3f62e230e8b4ffb4bb",
+    "results/retrieval_predictions.jsonl": "fdffb14b3a1aa7230e25ab0e470e420c5f91338e3edc5396e7fa68ac6b24bd86"
   }
 }
