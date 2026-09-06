@@ -1,0 +1,204 @@
+{
+  "protocol": "protocol.md",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "data": {
+    "archive_sha256": "bd6182891adb3cfc8334b82c062176dfbebc563bf0ba07e31c2645f916865a0a",
+    "raw_rows": 1956,
+    "unique_rows": 1740,
+    "conflicting_text_groups": 0,
+    "removed_rows": 216,
+    "groups": {
+      "train": [
+        "Youtube01-Psy.csv",
+        "Youtube02-KatyPerry.csv",
+        "Youtube03-LMFAO.csv"
+      ],
+      "validation": [
+        "Youtube04-Eminem.csv"
+      ],
+      "test": [
+        "Youtube05-Shakira.csv"
+      ]
+    },
+    "split_counts": {
+      "train": {
+        "n": 1029,
+        "spam": 490
+      },
+      "validation": {
+        "n": 400,
+        "spam": 207
+      },
+      "test": {
+        "n": 311,
+        "spam": 139
+      }
+    }
+  },
+  "vocabulary_size": 1033,
+  "logistic_training": [
+    {
+      "step": 0,
+      "loss": 0.6931471805599454
+    },
+    {
+      "step": 50,
+      "loss": 0.5678067349117979
+    },
+    {
+      "step": 100,
+      "loss": 0.4954698961826259
+    },
+    {
+      "step": 150,
+      "loss": 0.4506350356712937
+    },
+    {
+      "step": 200,
+      "loss": 0.4212700987459107
+    },
+    {
+      "step": 250,
+      "loss": 0.40120243755147317
+    },
+    {
+      "step": 300,
+      "loss": 0.3870344140319457
+    },
+    {
+      "step": 350,
+      "loss": 0.3767739507643057
+    },
+    {
+      "step": 400,
+      "loss": 0.3691907363604746
+    },
+    {
+      "step": 450,
+      "loss": 0.3634922392826123
+    },
+    {
+      "step": 499,
+      "loss": 0.3592262510720175
+    }
+  ],
+  "models": {
+    "majority": {
+      "validation": {
+        "n": 400,
+        "threshold": 0.5,
+        "accuracy": 0.4825,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion": {
+          "tn": 193,
+          "fp": 0,
+          "fn": 207,
+          "tp": 0
+        }
+      },
+      "test": {
+        "n": 311,
+        "threshold": 0.5,
+        "accuracy": 0.5530546623794212,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion": {
+          "tn": 172,
+          "fp": 0,
+          "fn": 139,
+          "tp": 0
+        }
+      },
+      "test_average_precision": 0.44694533762057875,
+      "test_f1_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "multinomial_nb": {
+      "validation": {
+        "n": 400,
+        "threshold": 0.8800000000000002,
+        "accuracy": 0.935,
+        "precision": 0.9689119170984456,
+        "recall": 0.9033816425120773,
+        "f1": 0.935,
+        "confusion": {
+          "tn": 187,
+          "fp": 6,
+          "fn": 20,
+          "tp": 187
+        }
+      },
+      "test": {
+        "n": 311,
+        "threshold": 0.8800000000000002,
+        "accuracy": 0.9067524115755627,
+        "precision": 1.0,
+        "recall": 0.7913669064748201,
+        "f1": 0.8835341365461847,
+        "confusion": {
+          "tn": 172,
+          "fp": 0,
+          "fn": 29,
+          "tp": 110
+        }
+      },
+      "test_average_precision": 0.9337905494945451,
+      "test_f1_bootstrap_95": [
+        0.8353239730575847,
+        0.9237402863611331
+      ]
+    },
+    "tfidf_logistic": {
+      "validation": {
+        "n": 400,
+        "threshold": 0.4600000000000001,
+        "accuracy": 0.935,
+        "precision": 0.9502487562189055,
+        "recall": 0.9227053140096618,
+        "f1": 0.9362745098039216,
+        "confusion": {
+          "tn": 183,
+          "fp": 10,
+          "fn": 16,
+          "tp": 191
+        }
+      },
+      "test": {
+        "n": 311,
+        "threshold": 0.4600000000000001,
+        "accuracy": 0.9035369774919614,
+        "precision": 0.990990990990991,
+        "recall": 0.7913669064748201,
+        "f1": 0.88,
+        "confusion": {
+          "tn": 171,
+          "fp": 1,
+          "fn": 29,
+          "tp": 110
+        }
+      },
+      "test_average_precision": 0.9631783818053221,
+      "test_f1_bootstrap_95": [
+        0.8346949931438313,
+        0.9205084076734822
+      ]
+    }
+  },
+  "elapsed_seconds": 0.7248688000254333,
+  "limitations": [
+    "Historical five-video corpus; not current production traffic",
+    "Exact normalized deduplication only; near-duplicate leakage may remain",
+    "One held-out video; bootstrap interval does not measure cross-video uncertainty",
+    "Validation video selects thresholds, not test; probabilities are not calibrated",
+    "AI-assisted educational implementation; not evidence of independent author proficiency"
+  ]
+}

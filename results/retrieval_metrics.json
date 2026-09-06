@@ -1,0 +1,70 @@
+{
+  "knowledge_count": 20,
+  "fixture_origin": "AI-authored synthetic queries; not user logs",
+  "data_sha256": {
+    "caigou_knowledge.json": "7b9dec6ea2dd8c7aec7610cfb9d28ff3e74d42b9cc3b56768ca4ddcb1a0532ae",
+    "caigou_queries.jsonl": "f9d48496170b6c782b9654300ba8c91e73c8508d3bb8f58380abccd6d4456b34"
+  },
+  "methods": {
+    "overlap": {
+      "dev": {
+        "n": 26,
+        "answerable": 20,
+        "unanswerable": 6,
+        "recall_at_1": 0.85,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 0.925,
+        "threshold": 2.0,
+        "coverage": 0.6538461538461539,
+        "accepted_answer_accuracy": 0.8823529411764706,
+        "rejection_specificity": 1.0,
+        "total_correct_fraction": 0.8076923076923077,
+        "mean_latency_ms": 0.03119617199095396
+      },
+      "test": {
+        "n": 50,
+        "answerable": 40,
+        "unanswerable": 10,
+        "recall_at_1": 0.8,
+        "recall_at_3": 0.975,
+        "mrr_at_3": 0.8708333333333333,
+        "threshold": 2.0,
+        "coverage": 0.76,
+        "accepted_answer_accuracy": 0.7894736842105263,
+        "rejection_specificity": 0.8,
+        "total_correct_fraction": 0.76,
+        "mean_latency_ms": 0.03489199560135603
+      }
+    },
+    "bm25": {
+      "dev": {
+        "n": 26,
+        "answerable": 20,
+        "unanswerable": 6,
+        "recall_at_1": 0.95,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 0.975,
+        "threshold": 2.849995505160661,
+        "coverage": 0.8076923076923077,
+        "accepted_answer_accuracy": 0.9047619047619048,
+        "rejection_specificity": 0.8333333333333334,
+        "total_correct_fraction": 0.9230769230769231,
+        "mean_latency_ms": 0.03478460264607118
+      },
+      "test": {
+        "n": 50,
+        "answerable": 40,
+        "unanswerable": 10,
+        "recall_at_1": 0.85,
+        "recall_at_3": 0.95,
+        "mrr_at_3": 0.8958333333333334,
+        "threshold": 2.849995505160661,
+        "coverage": 0.82,
+        "accepted_answer_accuracy": 0.8048780487804879,
+        "rejection_specificity": 0.6,
+        "total_correct_fraction": 0.78,
+        "mean_latency_ms": 0.039059980772435665
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "created_date": "2026-09-06",
+  "project_type": "AI-assisted personal learning projects",
+  "desktop_pet_commit": "048742b363227b2ae768822f0f79bf06cf673163",
+  "desktop_pet_check": "CAIGOU_DYNAMIC_TEST_OK",
+  "algorithm_check": "CHECK_OK",
+  "files": {
+    "README.md": "8a6c1c6f837dc1b575c8758b7dd6cd7cfd4dc7ed9094dc234d80d41a1a1d7430",
+    "LEARNING.md": "c62dc3ef0ca96df766fc50993e51f0fe51f3dbe65255ca8dc7d506a4737bc402",
+    "protocol.md": "d23ff1331aecf8bf7964393b95eb064fe49690a825d3ca546884dd218e292c44",
+    "requirements.txt": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
+    ".gitignore": "63bc895c006a1c383c39af98e07ab9204bdc2ae291a52cfe8c7c2b5bca735832",
+    "spam_classifier.py": "e40d735664bacead6a398c300b2cb7e601f419f9e74f481f1e9c14ced7114205",
+    "retrieval_eval.py": "f4480b68576391f76290ea9a5dae42965a8b9b2a91dd4de35f7dd238cd1a1faa",
+    "check.py": "5d3d02f3b4994889f1b94d2333297a05a2bfab49d21862df7cfdac5c4a46f399",
+    ".github/workflows/check.yml": "5235b6ddb4ab045f44813ba9ee77c8b893a5c8071ac047849b6ab9cf8c307978",
+    "data/caigou_knowledge.json": "7b9dec6ea2dd8c7aec7610cfb9d28ff3e74d42b9cc3b56768ca4ddcb1a0532ae",
+    "data/caigou_queries.jsonl": "f9d48496170b6c782b9654300ba8c91e73c8508d3bb8f58380abccd6d4456b34",
+    "results/spam_metrics.json": "fb2cc8f4dee97744683bd24abf0a76fd05f9ce3d6af1ab8e8cc9268a777a7673",
+    "results/spam_model.json": "8666236ea1e7e7dd75f8a30bd58777d844909304e4f8959a87288f129b8ab3fb",
+    "results/spam_predictions.csv": "164d21a3eba682700aa73820170838598436e1eb70522ac35f570bf09b90d397",
+    "results/spam_split_hashes.json": "d90844d8dec5d37a7ea4b90e733f25efffa779f986548ce85321f9092b9c40fa",
+    "results/retrieval_metrics.json": "4496bce1592d5fadfd4235b7501144e83baa9223135e31c4035936195147ada1",
+    "results/retrieval_predictions.jsonl": "0babe45c4a1eac6074f86da3ae223dacd292a410a33ac148112df2953a68a35d"
+  }
+}

@@ -1,0 +1,76 @@
+{"id": "start-dev", "split": "dev", "query": "桌宠怎么启动？", "relevant": "start"}
+{"id": "start-test-1", "split": "test", "query": "打开菜狗应该点哪里？", "relevant": "start"}
+{"id": "start-test-2", "split": "test", "query": "启动器 vbs 文件叫什么？", "relevant": "start"}
+{"id": "render-dev", "split": "dev", "query": "桌宠用什么界面技术？", "relevant": "render"}
+{"id": "render-test-1", "split": "test", "query": "渲染器是 WPF 吗？", "relevant": "render"}
+{"id": "render-test-2", "split": "test", "query": "透明窗口的动画用什么图片格式？", "relevant": "render"}
+{"id": "frames-dev", "split": "dev", "query": "动画共有多少帧？", "relevant": "frames"}
+{"id": "frames-test-1", "split": "test", "query": "高清素材图片尺寸是多少？", "relevant": "frames"}
+{"id": "frames-test-2", "split": "test", "query": "12 组动作的清单保存在哪？", "relevant": "frames"}
+{"id": "panel-dev", "split": "dev", "query": "生活面板显示哪些状态？", "relevant": "panel"}
+{"id": "panel-test-1", "split": "test", "query": "鼠标悬停会展开什么？", "relevant": "panel"}
+{"id": "panel-test-2", "split": "test", "query": "为什么右键菜狗不能展开控制面板？", "relevant": "panel"}
+{"id": "interact-dev", "split": "dev", "query": "单击头部会发生什么？", "relevant": "interact"}
+{"id": "interact-test-1", "split": "test", "query": "怎么和菜狗陪玩？", "relevant": "interact"}
+{"id": "interact-test-2", "split": "test", "query": "双击菜狗会启动什么程序？", "relevant": "interact"}
+{"id": "follow-dev", "split": "dev", "query": "停止跟随后菜狗去哪里？", "relevant": "follow"}
+{"id": "follow-test-1", "split": "test", "query": "陪跑是否只有 8 秒？", "relevant": "follow"}
+{"id": "follow-test-2", "split": "test", "query": "跟随鼠标时为什么移动中看不到面板？", "relevant": "follow"}
+{"id": "sleep-dev", "split": "dev", "query": "睡眠阶段持续多久？", "relevant": "sleep"}
+{"id": "sleep-test-1", "split": "test", "query": "夜里最长会睡多长时间？", "relevant": "sleep"}
+{"id": "sleep-test-2", "split": "test", "query": "睡着时为什么图片不一直播放？", "relevant": "sleep"}
+{"id": "quiet-dev", "split": "dev", "query": "安静清醒持续几分钟？", "relevant": "quiet"}
+{"id": "quiet-test-1", "split": "test", "query": "清醒安静的时候多久换姿势？", "relevant": "quiet"}
+{"id": "quiet-test-2", "split": "test", "query": "安静阶段的持续时间范围是多少？", "relevant": "quiet"}
+{"id": "active-dev", "split": "dev", "query": "活跃阶段能持续多久？", "relevant": "active"}
+{"id": "active-test-1", "split": "test", "query": "短暂活跃时动作间隔几秒？", "relevant": "active"}
+{"id": "active-test-2", "split": "test", "query": "活跃两到四分钟后会怎样？", "relevant": "active"}
+{"id": "routines-dev", "split": "dev", "query": "自主动作一共多少种？", "relevant": "routines"}
+{"id": "routines-test-1", "split": "test", "query": "为什么清醒动作不会连续重复？", "relevant": "routines"}
+{"id": "routines-test-2", "split": "test", "query": "小剧场和睡眠微动作分别有几个？", "relevant": "routines"}
+{"id": "dream-dev", "split": "dev", "query": "梦中动作多久出现？", "relevant": "dream"}
+{"id": "dream-test-1", "split": "test", "query": "睡着之后多长时间可能动一下？", "relevant": "dream"}
+{"id": "dream-test-2", "split": "test", "query": "梦中微动作是连续循环吗？", "relevant": "dream"}
+{"id": "talk-dev", "split": "dev", "query": "自言自语最少间隔多久？", "relevant": "talk"}
+{"id": "talk-test-1", "split": "test", "query": "不回应普通耍宝会扣亲密吗？", "relevant": "talk"}
+{"id": "talk-test-2", "split": "test", "query": "哪一个作息阶段会自言自语？", "relevant": "talk"}
+{"id": "nudge-dev", "split": "dev", "query": "正常多久求互动一次？", "relevant": "nudge"}
+{"id": "nudge-test-1", "split": "test", "query": "睡眠时是否会醒来弹提示？", "relevant": "nudge"}
+{"id": "nudge-test-2", "split": "test", "query": "极低饥饿时多久提醒需求？", "relevant": "nudge"}
+{"id": "energy-dev", "split": "dev", "query": "睡眠能恢复多少体力？", "relevant": "energy"}
+{"id": "energy-test-1", "split": "test", "query": "为什么跟随会消耗能量？", "relevant": "energy"}
+{"id": "energy-test-2", "split": "test", "query": "安静清醒每小时增加多少体力？", "relevant": "energy"}
+{"id": "hunger-dev", "split": "dev", "query": "饱食下降速度如何变化？", "relevant": "hunger"}
+{"id": "hunger-test-1", "split": "test", "query": "饱食剩 8 点时多久减一点？", "relevant": "hunger"}
+{"id": "hunger-test-2", "split": "test", "query": "饱食大于 25 时每小时减多少？", "relevant": "hunger"}
+{"id": "health-dev", "split": "dev", "query": "饱食归零后生命怎么减少？", "relevant": "health"}
+{"id": "health-test-1", "split": "test", "query": "生命归零会怎样？", "relevant": "health"}
+{"id": "health-test-2", "split": "test", "query": "死亡后重新启动看到什么？", "relevant": "health"}
+{"id": "affection-dev", "split": "dev", "query": "亲密度低到多少会离开？", "relevant": "affection"}
+{"id": "affection-test-1", "split": "test", "query": "强行喂饱了的菜狗会影响关系吗？", "relevant": "affection"}
+{"id": "affection-test-2", "split": "test", "query": "一直拎着它会降低哪个状态？", "relevant": "affection"}
+{"id": "adopt-dev", "split": "dev", "query": "重新领养初始亲密度是多少？", "relevant": "adopt"}
+{"id": "adopt-test-1", "split": "test", "query": "重新领养等于旧关系复活吗？", "relevant": "adopt"}
+{"id": "adopt-test-2", "split": "test", "query": "新领养的关系从多少亲密开始？", "relevant": "adopt"}
+{"id": "storage-dev", "split": "dev", "query": "存档文件叫什么？", "relevant": "storage"}
+{"id": "storage-test-1", "split": "test", "query": "我的亲密度数据会传到 GitHub 吗？", "relevant": "storage"}
+{"id": "storage-test-2", "split": "test", "query": "日志与备份是否包含在公开仓库？", "relevant": "storage"}
+{"id": "release-dev", "split": "dev", "query": "发布之前需要运行哪个测试？", "relevant": "release"}
+{"id": "release-test-1", "split": "test", "query": "哪里有可下载的 ZIP 版本？", "relevant": "release"}
+{"id": "release-test-2", "split": "test", "query": "推送 main 后会自动生成什么？", "relevant": "release"}
+{"id": "unknown-dev-1", "split": "dev", "query": "菜狗能在 macOS 上运行吗？", "relevant": null}
+{"id": "unknown-dev-2", "split": "dev", "query": "怎么接入大语言模型 API？", "relevant": null}
+{"id": "unknown-dev-3", "split": "dev", "query": "云端同步存档收费多少？", "relevant": null}
+{"id": "unknown-dev-4", "split": "dev", "query": "桌宠支持语音聊天吗？", "relevant": null}
+{"id": "unknown-dev-5", "split": "dev", "query": "怎么给菜狗买衣服？", "relevant": null}
+{"id": "unknown-dev-6", "split": "dev", "query": "能和另一台电脑的桌宠联机吗？", "relevant": null}
+{"id": "unknown-test-1", "split": "test", "query": "菜狗 Linux 安装包在哪？", "relevant": null}
+{"id": "unknown-test-2", "split": "test", "query": "怎样训练桌宠的神经网络？", "relevant": null}
+{"id": "unknown-test-3", "split": "test", "query": "使用哪个模型生成回复？", "relevant": null}
+{"id": "unknown-test-4", "split": "test", "query": "亲密度会自动同步到手机吗？", "relevant": null}
+{"id": "unknown-test-5", "split": "test", "query": "怎么修改睡眠为固定八小时？", "relevant": null}
+{"id": "unknown-test-6", "split": "test", "query": "直播弹幕怎么控制喂食？", "relevant": null}
+{"id": "unknown-test-7", "split": "test", "query": "语音识别支持多少种语言？", "relevant": null}
+{"id": "unknown-test-8", "split": "test", "query": "如何导出桌宠对话记录？", "relevant": null}
+{"id": "unknown-test-9", "split": "test", "query": "喂食一次增加多少饱食？", "relevant": null}
+{"id": "unknown-test-10", "split": "test", "query": "系统支持自动更新安装吗？", "relevant": null}
