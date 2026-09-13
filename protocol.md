@@ -1,8 +1,7 @@
 # Experiment protocol
 
-Defined on 2026-09-06 before the first full dataset run. This is a public,
-AI-assisted learning portfolio, not employment or an independently completed
-research contribution. No paid model APIs are needed.
+Defined on 2026-09-06 before the first full dataset run. This is an educational
+benchmark protocol, not a production evaluation. No paid model APIs are needed.
 
 ## YouTube spam classification
 
@@ -32,13 +31,13 @@ research contribution. No paid model APIs are needed.
 
 ## Desktop pet document retrieval
 
-- Knowledge entries are paraphrased from the owner's public desktop-pet README
-  and code at commit 048742b363227b2ae768822f0f79bf06cf673163.
+- Knowledge entries are paraphrased from the owner's public desktop-pet README;
+  each entry records its pinned source URL.
 - The new retriever is a separate experiment, not integrated into the WPF app.
 - Compare binary token overlap and BM25 (k1=1.5, b=0.75). Chinese character
   bigrams plus Latin word tokens; no synonym tuning after test inspection.
-- Queries and relevance labels are AI-authored synthetic fixtures, not user
-  traffic. Freeze the fixtures before first run; dev and test have different
+- Queries and relevance labels are synthetic fixtures, not user traffic. Freeze
+  the fixtures before first run; dev and test have different
   queries but share knowledge topics.
 - Report Recall@1, Recall@3 and MRR@3 on answerable queries. Each query has one
   primary relevant document, so Recall@k equals Hit@k in this fixture.

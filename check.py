@@ -1,8 +1,11 @@
 """One independent runnable check: gradient, metrics, split isolation and retrieval."""
+import hashlib
+import json
+from pathlib import Path
+
 import numpy as np
 from spam_classifier import loss_gradient, metrics, average_precision, tfidf, counts, vocabulary
 from retrieval_eval import Retriever, threshold_on_dev, correct, load
-from pathlib import Path
 
 
 def main():
@@ -38,7 +41,12 @@ def main():
     assert all(correct(row, threshold) for row in dev)
     assert not correct(dict(relevant=None, retrieved=["a"], score=6.), threshold)
     load(Path(__file__).parent / "data")
-    print("CHECK_OK: numeric gradient, tied AP, confusion counts, OOV, BM25, rejection and fixture schema")
+    root = Path(__file__).parent
+    manifest = json.loads((root / "results/run_manifest.json").read_text(encoding="utf-8"))
+    for name, expected in manifest["files"].items():
+        content = (root / name).read_bytes().replace(b"\r\n", b"\n")
+        assert hashlib.sha256(content).hexdigest() == expected, f"Stale manifest hash: {name}"
+    print("CHECK_OK: gradients, metrics, retrieval, fixture schema and manifest hashes")
 
 
 if __name__ == "__main__":

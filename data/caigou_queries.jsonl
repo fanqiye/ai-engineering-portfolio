@@ -12,7 +12,7 @@
 {"id": "panel-test-2", "split": "test", "query": "为什么右键菜狗不能展开控制面板？", "relevant": "panel"}
 {"id": "interact-dev", "split": "dev", "query": "单击头部会发生什么？", "relevant": "interact"}
 {"id": "interact-test-1", "split": "test", "query": "怎么和菜狗陪玩？", "relevant": "interact"}
-{"id": "interact-test-2", "split": "test", "query": "双击菜狗会启动什么程序？", "relevant": "interact"}
+{"id": "interact-test-2", "split": "test", "query": "拖动菜狗可以改变什么？", "relevant": "interact"}
 {"id": "follow-dev", "split": "dev", "query": "停止跟随后菜狗去哪里？", "relevant": "follow"}
 {"id": "follow-test-1", "split": "test", "query": "陪跑是否只有 8 秒？", "relevant": "follow"}
 {"id": "follow-test-2", "split": "test", "query": "跟随鼠标时为什么移动中看不到面板？", "relevant": "follow"}

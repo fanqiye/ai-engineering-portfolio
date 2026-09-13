@@ -26,8 +26,8 @@
   {
     "id": "interact",
     "title": "直接互动",
-    "text": "单击头部摸头，单击身体陪玩，拖动可以移动菜狗，双击菜狗会打开 Codex。用户点击或拖动会打断自主表演。",
-    "source": "https://github.com/fanqiye/caigou-desktop-pet/blob/048742b363227b2ae768822f0f79bf06cf673163/README.md"
+    "text": "点击头部会摸头，点击身体会陪玩，拖动可以改变菜狗的位置。用户输入会打断自主表演。",
+    "source": "https://github.com/fanqiye/caigou-desktop-pet/blob/b8e566a19bc1acb7a395b88fe1544bc5944b270f/README.md"
   },
   {
     "id": "follow",

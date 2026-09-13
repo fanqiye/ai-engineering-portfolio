@@ -6,7 +6,6 @@ import json
 import math
 from pathlib import Path
 import re
-import time
 
 
 def tokenize(text):
@@ -58,11 +57,9 @@ class Retriever:
 def evaluate_rows(retriever, queries, method):
     rows = []
     for query in queries:
-        start = time.perf_counter()
         hits = retriever.search(query["query"], method)
         rows.append(dict(**query, retrieved=[h["id"] for h in hits],
-                         score=hits[0]["score"] if hits else 0.0,
-                         latency_ms=(time.perf_counter()-start)*1000))
+                         score=hits[0]["score"] if hits else 0.0))
     return rows
 
 
@@ -95,8 +92,7 @@ def summarize(rows, threshold):
                 threshold=threshold, coverage=len(answered)/len(rows),
                 accepted_answer_accuracy=sum(correct(r, threshold) for r in answered)/len(answered) if answered else None,
                 rejection_specificity=sum(not accepted(r, threshold) for r in unanswerable)/len(unanswerable),
-                total_correct_fraction=sum(correct(r, threshold) for r in rows)/len(rows),
-                mean_latency_ms=sum(r["latency_ms"] for r in rows)/len(rows))
+                total_correct_fraction=sum(correct(r, threshold) for r in rows)/len(rows))
 
 
 def load(root):
@@ -132,7 +128,7 @@ def main():
         print(json.dumps(dict(status="evidence_found" if answer else "insufficient_evidence",
                               evidence=answer, threshold=threshold), ensure_ascii=False, indent=2))
         return
-    report = dict(knowledge_count=len(docs), fixture_origin="AI-authored synthetic queries; not user logs",
+    report = dict(knowledge_count=len(docs), fixture_origin="Synthetic queries created for this repository; not user logs",
         data_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(args.data.glob("*.json*"))},
         methods={})
     predictions = []

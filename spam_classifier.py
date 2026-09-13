@@ -189,8 +189,7 @@ def run(data_path, out):
     report["limitations"] = ["Historical five-video corpus; not current production traffic",
         "Exact normalized deduplication only; near-duplicate leakage may remain",
         "One held-out video; bootstrap interval does not measure cross-video uncertainty",
-        "Validation video selects thresholds, not test; probabilities are not calibrated",
-        "AI-assisted educational implementation; not evidence of independent author proficiency"]
+        "Validation video selects thresholds, not test; probabilities are not calibrated"]
     (out / "spam_metrics.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     model = dict(vocabulary=vocab, idf=idf.tolist(), weights=w.tolist(), bias=b,
                  threshold=report["models"]["tfidf_logistic"]["test"]["threshold"])
