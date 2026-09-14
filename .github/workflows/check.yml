@@ -6,7 +6,7 @@ jobs:
   check:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Run self-check
         shell: powershell
         run: .\tests\test-serial-recorder.ps1
