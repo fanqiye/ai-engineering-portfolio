@@ -1,132 +1,59 @@
-# AI Engineering Portfolio
+# Serial Field Recorder
 
-Two reproducible, CPU-only learning projects connecting content operations with
-text classification and document retrieval. Maintained by
-[fanqiye](https://github.com/fanqiye); related product:
-[Caigou Desktop Pet](https://github.com/fanqiye/caigou-desktop-pet).
+面向 Windows 现场调试的串口日志记录器。它把设备每一行输出写入带时间戳的
+CSV，在串口断开后自动重连，并按文件大小滚动分卷。适合开发板联调、老化测试、
+小批量出厂验收和售后故障复现。
 
-**Status:** reproducible educational baselines, not production systems.
+只依赖 Windows PowerShell 5.1 和系统自带的 .NET，不需要安装 Python、驱动库或
+后台服务。
 
-## Run
+## 使用
 
-Python 3.11+; only NumPy is required. No API key, paid inference or GPU.
+查看可用串口：
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python check.py
-.venv\Scripts\python spam_classifier.py --download
-.venv\Scripts\python retrieval_eval.py
-.venv\Scripts\python spam_classifier.py --predict "Subscribe to my channel and win a free prize"
-.venv\Scripts\python retrieval_eval.py --query "睡眠能恢复多少体力？"
+.\serial-recorder.ps1 -List
 ```
 
-On macOS/Linux use `.venv/bin/python` for the same commands. Run from the
-repository root. `--download` fetches a checksum-pinned UCI archive into
-`.cache/`; subsequent runs work offline. Raw comments are not included here.
-Experiments write to `results/`; use `--out .cache/my-results` to preserve the
-committed reference outputs. Inference reads the model from the chosen output
-directory; a reference model is included.
+记录 COM3，波特率 115200：
 
-## 1  Cross-video YouTube spam classification
+```powershell
+.\serial-recorder.ps1 -Port COM3 -BaudRate 115200
+```
 
-The question is whether a text-only classifier transfers to an unseen video.
-The dataset has 1,956 comments from five historical videos. HTML/case/whitespace
-normalization and exact deduplication leave 1,740 comments: 1,029 train, 400
-validation and 311 test. Training uses Psy, KatyPerry and LMFAO; validation uses
-Eminem; Shakira is the fixed test video. Author, timestamp and video identifiers
-are excluded from model features.
+日志默认写入 `logs/`。每行包含本地时间、序号、来源和设备原文；写入后立即刷新，
+即使设备或终端异常退出，已经收到的记录仍保留。串口断开后每 3 秒重试，按
+`Ctrl+C` 停止。
 
-The implementation fits 1,033 unigram features and IDF using training data only.
-It compares a majority baseline, multinomial Naive Bayes and TF-IDF logistic
-regression. Logistic regression uses NumPy gradients with a finite-difference
-check. Each learned classifier selects its decision threshold using validation
-F1, then the fixed threshold is evaluated on test.
+常用参数：
 
-| Method | Test precision | Test recall | Test F1 | Test accuracy | Average precision |
-|---|---:|---:|---:|---:|---:|
-| Majority | 0.000 | 0.000 | 0.000 | 0.553 | 0.447 |
-| Multinomial NB | 1.000 | 0.791 | 0.884 | 0.907 | 0.934 |
-| TF-IDF logistic | 0.991 | 0.791 | 0.880 | 0.904 | 0.963 |
+```powershell
+# 单次连接，断开后退出
+.\serial-recorder.ps1 -Port COM5 -Once
 
-The more complex model did **not** beat Naive Bayes on test F1. Logistic ranking
-has higher average precision, but its validation-selected decision threshold
-still misses 29 of 139 spam comments and incorrectly flags one legitimate
-comment. Keep both facts when discussing the model. Logistic F1's comment-level
-bootstrap 95% interval is approximately [0.835, 0.921]; it does not describe
-uncertainty across videos.
+# GB18030 文本、CRLF 行尾、每 50 MB 分卷
+.\serial-recorder.ps1 -Port COM4 -EncodingName GB18030 -LineEnding CRLF -MaxFileSizeMB 50
 
-Evidence: [metrics](results/spam_metrics.json),
-[all test predictions](results/spam_predictions.csv),
-[split hashes](results/spam_split_hashes.json),
-[saved model](results/spam_model.json).
+# 不接硬件，回放示例数据并检查 CSV 输出
+.\serial-recorder.ps1 -InputFile .\examples\sample-device-output.txt -OutputDirectory .\logs
+```
 
-## 2  Desktop-pet knowledge retrieval and rejection
+输出示例：
 
-An offline retriever searches 20 paraphrased knowledge entries from the existing
-pet repository and returns an evidence excerpt with its source URL. It compares
-binary token overlap with BM25 using Chinese character bigrams and Latin words.
-This is a separate CLI experiment; it has not been integrated into the WPF pet.
-It does not call or evaluate an LLM, generate answers, or measure hallucinations.
+```csv
+timestamp,sequence,source,message
+"2026-09-14T10:32:18.421+08:00",1,"COM3","temperature=24.6,humidity=51"
+```
 
-The 76 queries are synthetic fixtures: 26 dev and 50 test. The test
-set contains 40 answerable and 10 unanswerable questions. Relevance is relative
-to this 20-entry knowledge base, not every fact in the upstream code. Thresholds
-are selected on dev only. Dev and test share topics, so these are modest
-in-domain checks, not evidence of general retrieval ability.
+## 自检
 
-| Method | Recall@1 | Recall@3 | MRR@3 | Answer coverage | Accepted accuracy | Rejection specificity |
-|---|---:|---:|---:|---:|---:|---:|
-| Token overlap | 0.800 | 0.975 | 0.879 | 0.740 | 0.811 | 0.800 |
-| BM25 | 0.850 | 0.950 | 0.900 | 0.820 | 0.805 | 0.600 |
+```powershell
+.\tests\test-serial-recorder.ps1
+```
 
-BM25 improves top-1 ranking but has worse top-3 recall and rejects only 6 of 10
-unanswerable questions. It returns an irrelevant source for questions such as
-“使用哪个模型生成回复？”; a high lexical score is not evidence that a question is
-answerable. Another failure, “夜里最长会睡多长时间？”, misses the sleep entry because
-the bigram tokenizer cannot connect the paraphrase to the right wording.
+自检不需要串口硬件，覆盖 CSV 转义、控制字符显示、UTF-8 中文记录和日志分卷。
 
-The next experiment should collect a new, separately labeled set of questions
-and compare a semantic retriever or a dedicated answerability model. Do not
-retune these test fixtures and report the result as untouched test performance.
+## 边界
 
-Evidence: [metrics](results/retrieval_metrics.json),
-[all test cases and failures](results/retrieval_predictions.jsonl),
-[knowledge](data/caigou_knowledge.json), [queries](data/caigou_queries.jsonl).
-
-## Protocol and checks
-
-[protocol.md](protocol.md) records the choices made before the first benchmark
-run. [check.py](check.py) is the single runnable correctness check: numerical
-gradient, tied-score average precision, confusion matrix, out-of-vocabulary
-handling, BM25 formula, rejection behavior and fixture validation. The data
-loader also enforces disjoint normalized text hashes across splits. GitHub
-Actions runs the small check and offline retrieval pipeline on each change;
-it does not train the classifier or download the external corpus.
-
-The original pet passed its existing `tests/test-caigou-dynamic.ps1` check at
-commit `048742b363227b2ae768822f0f79bf06cf673163` during this work. Its actual
-behavior is WPF interaction, state persistence and randomized rule scheduling;
-there is no trained neural policy in that project.
-
-## Data and attribution
-
-- Alberto, T. & Lochter, J. (2015). *YouTube Spam Collection*. UCI Machine
-  Learning Repository. https://doi.org/10.24432/C58885 . Dataset license:
-  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- Dataset archive SHA-256:
-  `bd6182891adb3cfc8334b82c062176dfbebc563bf0ba07e31c2645f916865a0a`.
-- Pet facts are paraphrased from the owner's desktop-pet README; each knowledge
-  entry records a pinned source URL.
-  No upstream artwork, state files or application source is redistributed here.
-- Only normalized comment hashes, labels and numeric predictions are published.
-  Exact deduplication does not remove semantic or near duplicates. Historical
-  music-video comments are not representative of current content moderation.
-
-See [LEARNING.md](LEARNING.md) for a Chinese walkthrough and suggested extensions.
-
-## Development note
-
-The initial implementation and synthetic retrieval fixtures were developed with
-Codex assistance. The reported claims are limited to behavior that can be
-reproduced from the committed code and data.
+本工具记录以 LF 或 CRLF 结尾的文本协议。二进制帧、无行尾的连续数据流或高带宽
+采样应使用协议分析仪或专用采集程序。串口驱动仍由设备厂商提供。

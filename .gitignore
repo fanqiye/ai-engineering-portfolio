@@ -1,8 +1,6 @@
+logs/
 .cache/
-.venv/
 __pycache__/
 *.pyc
-.env
-*.docx
-*.pdf
-work/
+*.zip
+*.exe

@@ -1,0 +1,4 @@
+boot=ok,firmware=1.4.2
+temperature=24.6,humidity=51
+relay=1,current_ma=183
+heartbeat=42
